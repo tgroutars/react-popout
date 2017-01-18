@@ -17,7 +17,8 @@ export default class PopoutWindow extends React.Component {
     options: React.PropTypes.object,
     window: React.PropTypes.object,
     containerId: React.PropTypes.string,
-    children: React.PropTypes.element
+    children: React.PropTypes.element,
+    onWindowOpened: React.PropTypes.func
   };
 
   state = {
@@ -123,6 +124,10 @@ export default class PopoutWindow extends React.Component {
     popoutWindow.document.readyState === 'complete' && onloadHandler();
 
     this.setState({openedWindow});
+
+    if (this.props.onWindowOpened) {
+      this.props.onWindowOpened(popoutWindow);
+    }
   }
 
   closeWindow(){
