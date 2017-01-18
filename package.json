@@ -18,6 +18,7 @@
   "scripts": {
     "prebuild:demo": "npm run build:dist",
     "demo": "webpack-dev-server --progress --colors --hot -d --port 8880 --config _webpack.demo.config.js",
+    "build": "npm run build:dist",
     "build:dist": "webpack --config _webpack.dist.config.js --optimize-minimize",
     "build:demo": "webpack --config _webpack.demo.config.js --optimize-minimize",
     "test": "karma start _karma.conf.js --autowatch --no-single-run",
